@@ -1,59 +1,113 @@
-To set up Git in **VS Code**, follow these steps:
+# Chowzy - Food Cart Web Application
+
+## 🌐 Overview
+
+**Chowzy** is a full-stack Food Cart Web Application designed to offer a seamless and user-friendly online ordering experience. Built using **Java Servlets, JSP, and MySQL**, the platform enables users to browse menus from various restaurants, manage their cart, and place orders efficiently. It also features an admin module for backend management.
 
 ---
 
-### ✅ 1. **Install Git (if not already installed)**
+## 🎯 Objective
 
-You can download it from:  
-👉 [https://git-scm.com/downloads](https://git-scm.com/downloads)
+The goal of this application is to replicate a real-world food ordering system where users can:
 
----
-
-### ✅ 2. **Configure Git (first time only)**
-
-Open **Terminal** inside VS Code (`Ctrl + `) and run:
-
-```bash
-git config --global user.name "Your Name"
-git config --global user.email "you@example.com"
-```
+- Browse food items categorized by restaurant
+- Add items to a cart
+- Update quantities or remove items
+- Checkout and place orders
+- Admins can manage food items, prices, and monitor orders
 
 ---
 
-### ✅ 3. **Initialize a Git repo in your project folder**
+## 🚀 Features
 
-Open your project in VS Code, then run:
+### 1. User Authentication
+- Secure registration and login system
+- Session-based user tracking
 
-```bash
-git init
-```
+### 2. Restaurant and Food Management
+- Dynamic listing of restaurants
+- Menu generation from database entries
 
----
+### 3. Cart Functionality
+- Add, update, or remove food items
+- Automatically clear cart when switching restaurants
 
-### ✅ 4. **Add and Commit files**
+### 4. Checkout Process
+- Detailed cart summary with quantities and pricing
+- Order placement and data persistence
+- Automatic cart clearance after successful checkout
 
-```bash
-git add .
-git commit -m "Initial commit"
-```
-
----
-
-### ✅ 5. **(Optional) Link to a remote repository**
-
-If you have a GitHub repo:
-
-```bash
-git remote add origin https://github.com/yourusername/your-repo-name.git
-git push -u origin master  # or main, depending on your default branch
-```
+### 5. Admin Module
+- Secure admin login
+- Add, update, or delete food items
+- Manage restaurants and their data
+- View all user orders with complete breakdowns
 
 ---
 
-### ✅ 6. **Use Git GUI in VS Code**
+## 🧩 Modules
 
-Click the **Source Control icon** on the left sidebar (or press `Ctrl+Shift+G`) to interact with Git visually (stage, commit, push, pull, etc.)
+| Module         | Description |
+|----------------|-------------|
+| **User Module** | Manages registration, login, and sessions |
+| **Restaurant Module** | Displays restaurants and corresponding food items |
+| **Cart Module** | Handles cart operations: add, update, remove, and display |
+| **Order Module** | Manages checkout, order storage, and cart clearance |
+| **Admin Module** | Admin interface for food and restaurant management, and order monitoring |
 
 ---
 
-Let me know if you want help creating a GitHub repo, generating SSH keys, or pushing changes!
+## 🛠️ Technology Stack
+
+- **Frontend:** JSP, HTML, CSS
+- **Backend:** Java Servlets, JDBC
+- **Database:** MySQL
+- **Server:** Apache Tomcat
+
+---
+
+## 🗃️ Database Design
+
+### Tables
+
+| Table Name | Description |
+|------------|-------------|
+| `users` | Stores user details (`user_id`, `name`, `email`, `password`) |
+| `admins` | Stores admin credentials (`admin_id`, `username`, `password`) |
+| `restaurants` | Restaurant info (`restaurant_id`, `name`, `location`) |
+| `food` | Menu items (`food_id`, `food_name`, `price`, `restaurant_id`) |
+| `cart` | User cart (`user_id`, `food_id`, `quantity`) |
+| `orders` | Order summary (`order_id`, `user_id`, `total_amount`, `order_date`) |
+| `order_details` | Itemized order data (`order_id`, `food_id`, `quantity`, `price`) |
+
+---
+
+## 🔑 Key Functionalities
+
+### Dynamic Food Menu
+- Real-time display based on selected restaurant
+
+### Cart Management
+- Add/remove/update cart items with live feedback
+
+### Order Management
+- Store and retrieve orders from the database
+- Clear cart post-order placement
+
+### Admin Management
+- Manage menu items and pricing
+- Restaurant add/edit/remove capabilities
+- View and track all user orders
+
+---
+
+## 🔄 Workflow
+
+1. User logs in or registers
+2. User selects a restaurant to view its menu
+3. User adds food items to the cart
+4. User reviews and modifies cart if needed
+5. User proceeds to checkout and places an order
+6. Admin logs in to manage items, restaurants, and orders
+
+---
